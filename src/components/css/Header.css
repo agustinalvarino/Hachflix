@@ -1,0 +1,102 @@
+.header {
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  color: rgb(230, 230, 230);
+  width: 100%;
+  height: 80vh;
+}
+
+.heroimg {
+  height: 100%;
+  display: flex;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-contents {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+  margin-left: 1.6rem;
+}
+.hero-details {
+  display: flex;
+  align-items: center;
+}
+
+.hero-details h2 {
+  color: rgba(255, 0, 0, 0.843);
+  font-weight: bolder;
+}
+
+.hero-details p {
+  margin-left: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.hero-button {
+  width: 150px;
+  border-radius: 5px;
+  color: azure;
+  font-size: small;
+  background-color: rgba(185, 218, 252, 0.572);
+}
+
+.hero-button:hover {
+  background-color: rgba(185, 218, 252, 0.131);
+  transform: scale(1.2);
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+
+.hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.hero-title-after:hover {
+  cursor: pointer;
+  font-size: 4rem;
+  font-weight: 800;
+}
+
+.hero-description-after:hover {
+  color: azure;
+}
+
+.hero-title-after {
+  font-size: 3.2rem;
+  font-weight: 800;
+
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+.hero-description-after {
+  line-height: 1.3;
+  font-size: 0.9rem;
+  max-width: 40vw;
+  margin-left: 3px;
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+  color: rgb(235, 98, 98);
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 70vh;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+  }
+}
+
+@media (max-width: 575px) {
+  .header {
+    height: 60vh;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+  }
+}
