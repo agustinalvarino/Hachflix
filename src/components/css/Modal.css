@@ -73,6 +73,10 @@
   padding: 0 1rem;
 }
 
+.oneMovieLink {
+  text-decoration: none;
+}
+
 .masTitulos {
   margin-bottom: -0.5rem;
   padding: 0 0.2rem;

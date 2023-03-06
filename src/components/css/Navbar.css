@@ -15,6 +15,18 @@
   text-decoration: none;
 }
 
+.nav-button-container {
+  display: flex;
+  align-items: center;
+}
+
+.nav-button {
+  color: white;
+  padding-top: 0.7rem;
+  padding-left: 0.8rem;
+  font-size: small;
+}
+
 .nav-black {
   background-color: black;
   position: fixed;

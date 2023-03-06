@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import axios from "axios";
+import "./css/ScrollEternal.css";
 
 export default function ScrollEternal() {
   const [movies, setMovies] = React.useState(null);
@@ -29,22 +30,16 @@ export default function ScrollEternal() {
   }
 
   return movies ? (
-    <div className="infiniteScroll">
+    <div className="scrollContainer">
       <InfiniteScroll
         dataLength={movies.length}
         next={fetchData}
         hasMore={true}
-        loader={<h4>Loading...</h4>}
-        endMessage={
-          <p style={{ textAlign: "center" }}>
-            <b>Yay! You have seen it all</b>
-          </p>
-        }
       >
-        <div className="d-flex row row-cols-3">
+        <div className="scroll-grid d-flex row row-cols-3">
           {movies.map((movie) => {
             return (
-              <div className="" key={movie.id}>
+              <div className="infiniteMovie" key={movie.id}>
                 <img
                   className="img-fluid poster"
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}

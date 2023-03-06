@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { Routes, Route, Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Home from "./Home";
+import { ModalDialog } from "react-bootstrap";
 
 export default function Movie({
   modal,
@@ -13,7 +14,9 @@ export default function Movie({
 }) {
   const [movie, setMovie] = React.useState(null);
   const params = useParams();
-  console.log(params);
+  const handleClick = () => {
+    setModal(modal);
+  };
 
   useEffect(() => {
     const movieData = async () => {
@@ -24,7 +27,7 @@ export default function Movie({
         .then((response) => setMovie(response.data));
     };
     movieData();
-  });
+  }, []);
 
   return movie ? (
     <Home

@@ -4,7 +4,6 @@ import Populars from "../components/Populars";
 import Toprated from "../components/TopRated";
 import Hollywood from "../components/Hollywood";
 import Modal from "../components/Modal";
-import ScrollEternal from "../components/ScrollEternal";
 
 export default function Home({
   setModal,
@@ -29,7 +28,6 @@ export default function Home({
         <Toprated responsive={responsive} />
       </div>
       {modal ? <Modal movieId={movieId} setModal={setModal} /> : null}
-      <ScrollEternal />
     </>
   );
 }

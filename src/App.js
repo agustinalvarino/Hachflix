@@ -1,10 +1,12 @@
 //import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import React from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Movie from "./pages/Movie";
+import env from "react-dotenv";
+import Peliculas from "./pages/Peliculas";
 
 const responsive = {
   superLargeDesktop: {
@@ -103,6 +105,7 @@ function App() {
             />
           }
         />
+        <Route path="/peliculas" element={<Peliculas />} />
       </Routes>
     </div>
   );
