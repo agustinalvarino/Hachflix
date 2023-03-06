@@ -39,7 +39,5 @@ export default function Hollywood({ responsive }) {
         })}
       </Carousel>
     </div>
-  ) : (
-    <h1>Chau</h1>
-  );
+  ) : null;
 }

@@ -90,7 +90,19 @@ function App() {
             />
           }
         />
-        <Route path="/pelicula/:id" element={<Movie />} />
+        <Route
+          path="/pelicula/:id"
+          element={
+            <Movie
+              modal={modal}
+              setModal={setModal}
+              movieId={movieId}
+              setMovieId={setMovieId}
+              responsive={responsive}
+              responsiveChico={responsiveChico}
+            />
+          }
+        />
       </Routes>
     </div>
   );

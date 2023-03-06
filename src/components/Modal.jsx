@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./css/Modal.css";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Modal({ modal, movieId, setModal }) {
   const [relatedMovies, setRealtedMovies] = React.useState();
@@ -35,14 +36,16 @@ export default function Modal({ modal, movieId, setModal }) {
       <div className="Overlay">
         <div className="ContenedorModal">
           <div className="acaVaElButton">
-            <button
-              onClick={handleClick}
-              type="button"
-              class="button"
-              aria-label="Close"
-            >
-              X
-            </button>
+            <Link to="/">
+              <button
+                type="button"
+                onClick={handleClick}
+                class="button"
+                aria-label="Close"
+              >
+                X
+              </button>
+            </Link>
           </div>
 
           <div className="modal-img" style={styles}></div>
@@ -79,7 +82,5 @@ export default function Modal({ modal, movieId, setModal }) {
         </div>
       </div>
     </>
-  ) : (
-    <h1>Aguante Boca</h1>
-  );
+  ) : null;
 }

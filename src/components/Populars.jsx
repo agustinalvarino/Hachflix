@@ -4,6 +4,7 @@ import axios from "axios";
 import "../App.css";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { Routes, Route, Link } from "react-router-dom";
 
 export default function Populars({
   responsive,
@@ -36,18 +37,22 @@ export default function Populars({
             setMovieId(movie);
           };
           return (
-            <div className="carrousel" onClick={handleClick} key={movie.id}>
-              <img
-                className="img-fluid poster"
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt=""
-              ></img>
-            </div>
+            <Link
+              to={`/pelicula/${movie.id}`}
+              key={movie.id}
+              className="movieLink"
+            >
+              <div className="carrousel" onClick={handleClick} key={movie.id}>
+                <img
+                  className="img-fluid poster"
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt=""
+                ></img>
+              </div>
+            </Link>
           );
         })}
       </Carousel>
     </div>
-  ) : (
-    <h1>Chau</h1>
-  );
+  ) : null;
 }

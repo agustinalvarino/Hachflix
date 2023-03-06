@@ -59,7 +59,5 @@ export default function Header({ setModal, modal, setMovieId }) {
         </div>
       </div>
     </div>
-  ) : (
-    <h1>Hola</h1>
-  );
+  ) : null;
 }

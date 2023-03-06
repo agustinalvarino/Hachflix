@@ -36,7 +36,5 @@ export default function Toprated({ responsive }) {
         })}
       </Carousel>
     </div>
-  ) : (
-    <h1>Chau</h1>
-  );
+  ) : null;
 }

@@ -56,7 +56,5 @@ export default function ScrollEternal() {
         </div>
       </InfiniteScroll>
     </div>
-  ) : (
-    <h1>AGAUNTE BOCA</h1>
-  );
+  ) : null;
 }
