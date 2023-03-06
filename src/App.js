@@ -1,13 +1,10 @@
-import "./App.css";
-import Header from "./components/Header";
-import Populars from "./components/Populars";
-import Toprated from "./components/TopRated";
-import React from "react";
-import Navbar from "./components/Navbar";
-import Hollywood from "./components/Hollywood";
-import Modal from "./components/Modal";
 //import "bootstrap/dist/css/bootstrap.min.css";
-import ScrollEternal from "./components/ScrollEternal";
+import "./App.css";
+import React from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Movie from "./pages/Movie";
 
 const responsive = {
   superLargeDesktop: {
@@ -79,20 +76,22 @@ function App() {
   return (
     <div className="layout">
       <Navbar />
-      <Header setModal={setModal} setMovieId={setMovieId} modal={modal} />
-      <div className="carruseles-grid">
-        <Populars
-          responsive={responsive}
-          modal={modal}
-          setModal={setModal}
-          movieId={movieId}
-          setMovieId={setMovieId}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home
+              modal={modal}
+              setModal={setModal}
+              movieId={movieId}
+              setMovieId={setMovieId}
+              responsive={responsive}
+              responsiveChico={responsiveChico}
+            />
+          }
         />
-        <Toprated responsive={responsive} />
-        <Hollywood responsive={responsiveChico} />
-      </div>
-      {modal ? <Modal movieId={movieId} setModal={setModal} /> : null}
-      <ScrollEternal />
+        <Route path="/pelicula/:id" element={<Movie />} />
+      </Routes>
     </div>
   );
 }
