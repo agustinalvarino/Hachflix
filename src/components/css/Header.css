@@ -41,6 +41,7 @@
 .hero-button {
   width: 150px;
   border-radius: 5px;
+  border: 1px solid #111;
   color: azure;
   font-size: small;
   background-color: rgba(185, 218, 252, 0.572);

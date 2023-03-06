@@ -19,7 +19,7 @@ export default function Header({ setModal, modal, setMovieId }) {
   useEffect(() => {
     setTimeout(() => {
       setIsLoaded(true);
-    }, 2000);
+    }, 1500);
   }, []);
 
   const styles = {

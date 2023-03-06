@@ -6,6 +6,9 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import Hollywood from "./components/Hollywood";
 import Modal from "./components/Modal";
+//import "bootstrap/dist/css/bootstrap.min.css";
+import ScrollEternal from "./components/ScrollEternal";
+
 const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
@@ -75,10 +78,7 @@ function App() {
 
   return (
     <div className="layout">
-      <div>
-        <Navbar />
-      </div>
-
+      <Navbar />
       <Header setModal={setModal} setMovieId={setMovieId} modal={modal} />
       <div className="carruseles-grid">
         <Populars
@@ -90,12 +90,9 @@ function App() {
         />
         <Toprated responsive={responsive} />
         <Hollywood responsive={responsiveChico} />
-
-        <Toprated responsive={responsive} />
-        <Populars responsive={responsive} />
-        <Toprated responsive={responsive} />
       </div>
       {modal ? <Modal movieId={movieId} setModal={setModal} /> : null}
+      <ScrollEternal />
     </div>
   );
 }
