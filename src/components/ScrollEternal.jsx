@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
 import axios from "axios";
 import "./css/ScrollEternal.css";
+import { Link } from "react-router-dom";
 
-export default function ScrollEternal() {
+export default function ScrollEternal({ modal, setModal, query }) {
   const [movies, setMovies] = React.useState(null);
   const [page, setPage] = React.useState(2);
 
@@ -14,10 +15,7 @@ export default function ScrollEternal() {
       )
       .then((response) => setMovies(response.data.results));
   }, []);
-  // TODO API KEY
-  // TODO ASYNC AWAIT
-  // LLAMADA AXIOS TEAMS
-  //
+
   async function fetchData() {
     await axios
       .get(
@@ -29,27 +27,43 @@ export default function ScrollEternal() {
       .then(() => setPage((prev) => prev + 1));
   }
 
+  const handleClick = () => {
+    setModal((prevModal) => !prevModal);
+  };
+
   return movies ? (
-    <div className="scrollContainer">
-      <InfiniteScroll
-        dataLength={movies.length}
-        next={fetchData}
-        hasMore={true}
-      >
-        <div className="scroll-grid d-flex row row-cols-3">
-          {movies.map((movie) => {
-            return (
-              <div className="infiniteMovie" key={movie.id}>
-                <img
-                  className="img-fluid poster"
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                  alt=""
-                ></img>
-              </div>
-            );
-          })}
-        </div>
-      </InfiniteScroll>
-    </div>
+    <>
+      <div className="scrollContainer">
+        <InfiniteScroll
+          dataLength={movies.length}
+          next={fetchData}
+          hasMore={true}
+        >
+          <div className="scroll-grid d-flex row row-cols-3">
+            {movies
+              .filter((movie) =>
+                movie.original_title.toLowerCase().includes(query)
+              )
+              .map((movie) => {
+                return (
+                  <Link to={`/pelicula/${movie.id}`}>
+                    <div
+                      className="infiniteMovie"
+                      onClick={handleClick}
+                      key={movie.id}
+                    >
+                      <img
+                        className="img-fluid poster"
+                        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                        alt=""
+                      ></img>
+                    </div>
+                  </Link>
+                );
+              })}
+          </div>
+        </InfiniteScroll>
+      </div>
+    </>
   ) : null;
 }

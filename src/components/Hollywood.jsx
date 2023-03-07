@@ -2,10 +2,11 @@ import React, { useEffect } from "react";
 import "./css/Carrousel.css";
 import axios from "axios";
 import "../App.css";
+import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
-export default function Hollywood({ responsive }) {
+export default function Hollywood({ responsive, setModal, setMovieId }) {
   const [movies, setMovies] = React.useState(null);
 
   useEffect(() => {
@@ -18,22 +19,37 @@ export default function Hollywood({ responsive }) {
   }, []);
 
   return movies ? (
-    <div className="carrousel-container">
-      <h3>De Hollywood a tu pantalla</h3>
+    <div id="hollywood" className="carrousel-container">
+      <h3 className="title">De Hollywood a tu pantalla</h3>
       <Carousel
         transitionDuration={500}
         infinite={true}
         responsive={responsive}
       >
         {movies.results.map((movie) => {
+          const handleClick = () => {
+            setModal((prevModal) => !prevModal);
+            setMovieId(movie);
+          };
           return (
             <div className="carrousel" key={movie.id}>
-              <h6 className="movie-title">{movie.original_title}</h6>
-              <img
-                className="img-fluid poster"
-                src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
-                alt=""
-              ></img>
+              <Link
+                to={`/pelicula/${movie.id}`}
+                key={movie.id}
+                className="movieLink"
+              >
+                <img
+                  className="img-fluid poster"
+                  src={`https://image.tmdb.org/t/p/w500${movie.backdrop_path}`}
+                  alt=""
+                ></img>
+              </Link>
+              <div className="box">
+                <p class="movieTitle">{movie.original_title}</p>
+                <button onClick={handleClick} class="modalBoton">
+                  v
+                </button>
+              </div>
             </div>
           );
         })}

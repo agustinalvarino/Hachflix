@@ -12,11 +12,7 @@ export default function Movie({
   responsive,
   responsiveChico,
 }) {
-  const [movie, setMovie] = React.useState(null);
   const params = useParams();
-  const handleClick = () => {
-    setModal(modal);
-  };
 
   useEffect(() => {
     const movieData = async () => {
@@ -24,19 +20,19 @@ export default function Movie({
         .get(
           `https://api.themoviedb.org/3/movie/${params.id}?api_key=7fd94ee7a2b7d02794d136b5214c3516&language=en-US`
         )
-        .then((response) => setMovie(response.data));
+        .then((response) => setMovieId(response.data));
     };
     movieData();
   }, []);
 
-  return movie ? (
-    <Home
-      modal={modal}
-      setModal={setModal}
-      movieId={movieId}
-      setMovieId={setMovieId}
-      responsive={responsive}
-      responsiveChico={responsiveChico}
-    />
+  return movieId ? (
+    <>
+      <img
+        className="img-fluid poster"
+        src={`https://image.tmdb.org/t/p/w500${movieId.poster_path}`}
+        alt=""
+      ></img>
+      <h1>{movieId.original_title}</h1>
+    </>
   ) : null;
 }

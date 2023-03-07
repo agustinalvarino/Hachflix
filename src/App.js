@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import Movie from "./pages/Movie";
+import Modal from "./components/Modal";
 import env from "react-dotenv";
 import Peliculas from "./pages/Peliculas";
 
@@ -74,10 +75,11 @@ const responsiveChico = {
 function App() {
   const [modal, setModal] = React.useState(false);
   const [movieId, setMovieId] = React.useState();
+  const [query, setQuery] = React.useState("");
 
   return (
     <div className="layout">
-      <Navbar />
+      <Navbar setQuery={setQuery} />
       <Routes>
         <Route
           path="/"
@@ -105,7 +107,18 @@ function App() {
             />
           }
         />
-        <Route path="/peliculas" element={<Peliculas />} />
+        <Route
+          path="/peliculas"
+          element={
+            <Peliculas
+              modal={modal}
+              setMovieId={setMovieId}
+              movieId={movieId}
+              setModal={setModal}
+              query={query}
+            />
+          }
+        />
       </Routes>
     </div>
   );

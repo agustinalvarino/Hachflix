@@ -3,7 +3,7 @@ import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ setQuery }) {
   const [navbar, setNavbar] = React.useState(false);
 
   const changeBackgroundNav = () => {
@@ -26,6 +26,15 @@ export default function Navbar() {
           <Link to="/peliculas" className="navito">
             <p className="nav-button">Películas</p>
           </Link>
+        </div>
+        <div className="searchBar">
+          <img className="navbarIcon" src="../lupa.svg" alt=""></img>
+          {/* <input
+            type="text"
+            placeholder="Títulos, personas, genero..."
+            className="search"
+            onChange={(e) => setQuery(e.target.value)}
+          ></input> */}
         </div>
       </div>
     </>

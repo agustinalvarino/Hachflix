@@ -24,7 +24,11 @@ export default function Home({
           movieId={movieId}
           setMovieId={setMovieId}
         />
-        <Hollywood responsive={responsiveChico} />
+        <Hollywood
+          responsive={responsiveChico}
+          setModal={setModal}
+          setMovieId={setMovieId}
+        />
         <Toprated responsive={responsive} />
       </div>
       {modal ? <Modal movieId={movieId} setModal={setModal} /> : null}

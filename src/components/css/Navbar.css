@@ -1,4 +1,21 @@
+.searchBar {
+  display: flex;
+  flex-direction: row;
+  margin-right: 1rem;
+  align-items: center;
+}
+
+.navbarIcon {
+  height: 26px;
+  background-color: black;
+  width: 26px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg)
+    brightness(102%) contrast(102%);
+}
+
 .nav {
+  display: flex;
+  /* justify-content: space-between; */
   position: fixed;
   top: 0;
   width: 100%;
@@ -11,6 +28,7 @@
   transition-timing-function: ease-in;
   transition: all 0.5s;
 }
+
 .navito {
   text-decoration: none;
 }
@@ -28,6 +46,8 @@
 }
 
 .nav-black {
+  display: flex;
+  justify-content: space-between;
   background-color: black;
   position: fixed;
   top: 0;

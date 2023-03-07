@@ -24,8 +24,8 @@ export default function Populars({
   }, []);
 
   return movies ? (
-    <div className="carrousel-container">
-      <h3>Populares en Hackflix</h3>
+    <div id="populars" className="carrousel-container">
+      <h3 className="title">Populares en Hackflix</h3>
       <Carousel
         transitionDuration={500}
         infinite={true}
@@ -33,23 +33,29 @@ export default function Populars({
       >
         {movies.results.map((movie) => {
           const handleClick = () => {
-            setModal(!modal);
+            setModal((prevModal) => !prevModal);
             setMovieId(movie);
           };
           return (
-            <Link
-              to={`/pelicula/${movie.id}`}
-              key={movie.id}
-              className="movieLink"
-            >
-              <div className="carrousel" onClick={handleClick} key={movie.id}>
+            <div className="carrousel" key={movie.id}>
+              <Link
+                to={`/pelicula/${movie.id}`}
+                key={movie.id}
+                className="movieLink"
+              >
                 <img
-                  className="img-fluid poster"
+                  className="poster w-100"
                   src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                   alt=""
                 ></img>
+              </Link>
+              <div className="box">
+                <p class="movieTitle">{movie.original_title}</p>
+                <button onClick={handleClick} class="modalBoton">
+                  v
+                </button>
               </div>
-            </Link>
+            </div>
           );
         })}
       </Carousel>
