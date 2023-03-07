@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
-import { Routes, Route, Link, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
-import Home from "./Home";
-import { ModalDialog } from "react-bootstrap";
+import "../components/css/Movie.css";
 
 export default function Movie({
   modal,
@@ -25,14 +24,40 @@ export default function Movie({
     movieData();
   }, []);
 
+  const styles = {
+    backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 1.1) 0%,
+    rgba(0, 0, 0, 0) 100%), url(https://image.tmdb.org/t/p/w500${movieId?.backdrop_path})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    color: "white",
+    height: "50vh",
+    borderTopRightRadius: "10px",
+    borderTopLeftRadius: "10px",
+    objectFit: "center",
+  };
+
   return movieId ? (
     <>
-      <img
-        className="img-fluid poster"
-        src={`https://image.tmdb.org/t/p/w500${movieId.poster_path}`}
-        alt=""
-      ></img>
-      <h1>{movieId.original_title}</h1>
+      <div className="container">
+        <div style={styles}></div>
+        <div className="info d-flex">
+          <div className="left">
+            <h1>{movieId.original_title}</h1>
+            <h6>{movieId.tagline}</h6>
+            <p className="overview">{movieId.overview}</p>
+          </div>
+          <div className="right">
+            <div className="gen">
+              <p className="d-flex">
+                Géneros:{" "}
+                {movieId.genres.map((genero) => {
+                  return <p className="ms-2">{genero.name} </p>;
+                })}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   ) : null;
 }

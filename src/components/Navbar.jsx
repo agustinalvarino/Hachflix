@@ -29,12 +29,12 @@ export default function Navbar({ setQuery }) {
         </div>
         <div className="searchBar">
           <img className="navbarIcon" src="../lupa.svg" alt=""></img>
-          {/* <input
+          <input
             type="text"
             placeholder="Títulos, personas, genero..."
             className="search"
             onChange={(e) => setQuery(e.target.value)}
-          ></input> */}
+          ></input>
         </div>
       </div>
     </>
