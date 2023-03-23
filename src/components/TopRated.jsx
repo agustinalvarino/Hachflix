@@ -31,17 +31,17 @@ export default function Toprated({ responsive, setModal, setMovieId }) {
           };
           return (
             <div className="carrousel" key={movie.id}>
-              <Link
-                to={`/pelicula/${movie.id}`}
-                key={movie.id}
-                className="movieLink"
-              >
+              <div key={movie.id} className="movieLink">
                 <img
                   className=" poster w-100"
-                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  src={
+                    movie.poster_path
+                      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                      : "../img/notfound.jpg"
+                  }
                   alt=""
                 ></img>
-              </Link>
+              </div>
               <div className="box">
                 <p class="movieTitle">{movie.original_title}</p>
                 <button onClick={handleClick} class="modalBoton">

@@ -94,7 +94,7 @@ function App() {
             />
           }
         />
-        <Route
+        {/* <Route
           path="/pelicula/:id"
           element={
             <Movie
@@ -106,7 +106,7 @@ function App() {
               responsiveChico={responsiveChico}
             />
           }
-        />
+        /> */}
         <Route
           path="/peliculas"
           element={
