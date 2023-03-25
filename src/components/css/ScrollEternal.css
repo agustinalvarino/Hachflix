@@ -15,3 +15,8 @@
 .infiniteMovie {
   margin-top: 1.5rem;
 }
+
+.infiniteMovie:hover {
+  transition: all 1s;
+  transform: scale(1.1);
+}

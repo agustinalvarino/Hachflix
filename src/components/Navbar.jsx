@@ -2,6 +2,7 @@ import "./css/Navbar.css";
 import React from "react";
 import "../App.css";
 import { Link } from "react-router-dom";
+import lupa from "../img/lupa.svg";
 
 export default function Navbar({ setQuery }) {
   const [navbar, setNavbar] = React.useState(false);
@@ -28,7 +29,9 @@ export default function Navbar({ setQuery }) {
           </Link>
         </div>
         <div className="searchBar">
-          <img className="navbarIcon" src="../lupa.svg" alt=""></img>
+          <Link to="/peliculas">
+            <img className="navbarIcon" src={lupa} alt=""></img>
+          </Link>
           <input
             type="text"
             placeholder="Títulos, personas, genero..."

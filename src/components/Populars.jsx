@@ -39,15 +39,17 @@ export default function Populars({
           return (
             <div className="carrousel" key={movie.id}>
               <div key={movie.id} className="movieLink">
-                <img
-                  className="poster w-100"
-                  src={
-                    movie.poster_path
-                      ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                      : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
-                  }
-                  alt=""
-                ></img>
+                <Link to={`/pelicula/${movie.id}`}>
+                  <img
+                    className="poster w-100"
+                    src={
+                      movie.poster_path
+                        ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                        : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
+                    }
+                    alt=""
+                  ></img>
+                </Link>
               </div>
               <div className="box">
                 <p class="movieTitle">{movie.original_title}</p>

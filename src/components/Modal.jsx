@@ -4,8 +4,17 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 export default function Modal({ modal, movieId, setModal }) {
-  const [relatedMovies, setRealtedMovies] = React.useState();
+  const [movies, setMovies] = React.useState(null);
 
+  useEffect(() => {
+    axios
+      .get(
+        `https://api.themoviedb.org/3/movie/popular?api_key=7fd94ee7a2b7d02794d136b5214c3516&language=en-US&page=1`
+      )
+      .then((response) => setMovies(response.data));
+  }, []);
+
+  const [relatedMovies, setRealtedMovies] = React.useState();
   useEffect(() => {
     axios
       .get(
@@ -63,15 +72,35 @@ export default function Modal({ modal, movieId, setModal }) {
                     <div className="oneMovie">
                       <img
                         className="relatedMovie-img"
-                        src={`https://image.tmdb.org/t/p/w500${relatedMovie?.backdrop_path}`}
+                        src={
+                          relatedMovie.backdrop_path
+                            ? `https://image.tmdb.org/t/p/w500${relatedMovie?.backdrop_path}`
+                            : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
+                        }
                         alt=""
                       ></img>
                       <div className="oneMovie-info">
                         <h6>{relatedMovie?.original_title}</h6>
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing
-                          elit.
-                        </p>
+                        <p className="description">{relatedMovie?.overview}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+                {movies?.results.map((movie) => {
+                  return (
+                    <div className="oneMovie">
+                      <img
+                        className="relatedMovie-img"
+                        src={
+                          movie.backdrop_path
+                            ? `https://image.tmdb.org/t/p/w500${movie?.backdrop_path}`
+                            : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
+                        }
+                        alt=""
+                      ></img>
+                      <div className="oneMovie-info">
+                        <h6>{movie?.original_title}</h6>
+                        <p className="description">{movie?.overview}</p>
                       </div>
                     </div>
                   );
