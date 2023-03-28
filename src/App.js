@@ -8,6 +8,7 @@ import Movie from "./pages/Movie";
 import Modal from "./components/Modal";
 import env from "react-dotenv";
 import Peliculas from "./pages/Peliculas";
+import About from "./pages/About";
 
 const responsive = {
   superLargeDesktop: {
@@ -120,6 +121,7 @@ function App() {
             />
           }
         />
+        <Route path="/about" element={<About />} />
       </Routes>
     </div>
   );

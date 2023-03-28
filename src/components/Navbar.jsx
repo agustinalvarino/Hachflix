@@ -27,6 +27,9 @@ export default function Navbar({ setQuery, navSearch }) {
           <Link to="/peliculas" className="navito">
             <p className="nav-button">Películas</p>
           </Link>
+          <Link to="/about" className="navito">
+            <p className="nav-button">About this project</p>
+          </Link>
         </div>
         <div className="searchBar">
           <Link to="/peliculas">
