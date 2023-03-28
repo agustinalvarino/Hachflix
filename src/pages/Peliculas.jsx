@@ -7,6 +7,7 @@ export default function Peliculas({
   movieId,
   setModal,
   query,
+  setNavSearch,
 }) {
   return (
     <>
@@ -15,6 +16,7 @@ export default function Peliculas({
         setModal={setModal}
         setMovieId={setMovieId}
         query={query}
+        setNavSearch={setNavSearch}
         tierralupa
       />
       {modal ? <Modal movieId={movieId} setModal={setModal} /> : null}

@@ -76,10 +76,11 @@ function App() {
   const [modal, setModal] = React.useState(false);
   const [movieId, setMovieId] = React.useState();
   const [query, setQuery] = React.useState("");
+  const [navSearch, setNavSearch] = React.useState(false);
 
   return (
     <div className="layout">
-      <Navbar setQuery={setQuery} />
+      <Navbar setQuery={setQuery} navSearch={navSearch} />
       <Routes>
         <Route
           path="/"
@@ -91,13 +92,19 @@ function App() {
               setMovieId={setMovieId}
               responsive={responsive}
               responsiveChico={responsiveChico}
+              setNavSearch={setNavSearch}
             />
           }
         />
         <Route
           path="/pelicula/:id"
           element={
-            <Movie responsive={responsive} responsiveChico={responsiveChico} />
+            <Movie
+              responsive={responsive}
+              setNavSearch={setNavSearch}
+              responsiveChico={responsiveChico}
+              navSearch={navSearch}
+            />
           }
         />
         <Route
@@ -109,6 +116,7 @@ function App() {
               movieId={movieId}
               setModal={setModal}
               query={query}
+              setNavSearch={setNavSearch}
             />
           }
         />

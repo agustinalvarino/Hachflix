@@ -12,6 +12,7 @@ export default function Home({
   modal,
   responsive,
   responsiveChico,
+  setNavSearch,
 }) {
   return (
     <>
@@ -23,6 +24,7 @@ export default function Home({
           setModal={setModal}
           movieId={movieId}
           setMovieId={setMovieId}
+          setNavSearch={setNavSearch}
         />
         <Hollywood
           responsive={responsiveChico}

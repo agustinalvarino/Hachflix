@@ -4,7 +4,7 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import lupa from "../img/lupa.svg";
 
-export default function Navbar({ setQuery }) {
+export default function Navbar({ setQuery, navSearch }) {
   const [navbar, setNavbar] = React.useState(false);
 
   const changeBackgroundNav = () => {
@@ -30,12 +30,12 @@ export default function Navbar({ setQuery }) {
         </div>
         <div className="searchBar">
           <Link to="/peliculas">
-            <img className="navbarIcon" src={lupa} alt=""></img>
+            <img className="lupita" src={lupa} alt=""></img>
           </Link>
           <input
             type="text"
             placeholder="Títulos, personas, genero..."
-            className="search"
+            className={navSearch ? "searchTrue" : "searchFalse"}
             onChange={(e) => setQuery(e.target.value)}
           ></input>
         </div>

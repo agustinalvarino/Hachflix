@@ -12,6 +12,7 @@ export default function Populars({
   setModal,
   movieId,
   setMovieId,
+  setNavSearch,
 }) {
   const [movies, setMovies] = React.useState(null);
 
@@ -20,7 +21,8 @@ export default function Populars({
       .get(
         `https://api.themoviedb.org/3/movie/popular?api_key=7fd94ee7a2b7d02794d136b5214c3516&language=en-US&page=1`
       )
-      .then((response) => setMovies(response.data));
+      .then((response) => setMovies(response.data))
+      .then(() => setNavSearch(false));
   }, []);
 
   return movies ? (

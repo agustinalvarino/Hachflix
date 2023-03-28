@@ -4,7 +4,12 @@ import axios from "axios";
 import "./css/ScrollEternal.css";
 import { Link } from "react-router-dom";
 
-export default function ScrollEternal({ modal, setModal, query }) {
+export default function ScrollEternal({
+  modal,
+  setModal,
+  query,
+  setNavSearch,
+}) {
   const [movies, setMovies] = React.useState(null);
   const [page, setPage] = React.useState(2);
 
@@ -13,7 +18,8 @@ export default function ScrollEternal({ modal, setModal, query }) {
       .get(
         `https://api.themoviedb.org/3/movie/popular?api_key=7fd94ee7a2b7d02794d136b5214c3516&language=en-US&page=1`
       )
-      .then((response) => setMovies(response.data.results));
+      .then((response) => setMovies(response.data.results))
+      .then(() => setNavSearch(true));
   }, []);
 
   async function fetchData() {
