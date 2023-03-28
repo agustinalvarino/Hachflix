@@ -70,15 +70,17 @@ export default function Modal({ modal, movieId, setModal }) {
                 {relatedMovies?.results.map((relatedMovie) => {
                   return (
                     <div className="oneMovie">
-                      <img
-                        className="relatedMovie-img"
-                        src={
-                          relatedMovie.backdrop_path
-                            ? `https://image.tmdb.org/t/p/w500${relatedMovie?.backdrop_path}`
-                            : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
-                        }
-                        alt=""
-                      ></img>
+                      <Link to={`/pelicula/${relatedMovie.id}`}>
+                        <img
+                          className="relatedMovie-img"
+                          src={
+                            relatedMovie.backdrop_path
+                              ? `https://image.tmdb.org/t/p/w500${relatedMovie?.backdrop_path}`
+                              : "https://www.salonlfc.com/wp-content/uploads/2018/01/image-not-found-scaled-1150x647.png"
+                          }
+                          alt=""
+                        ></img>
+                      </Link>
                       <div className="oneMovie-info">
                         <h6>{relatedMovie?.original_title}</h6>
                         <p className="description">{relatedMovie?.overview}</p>
