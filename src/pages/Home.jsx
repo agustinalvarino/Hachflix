@@ -4,6 +4,7 @@ import Populars from "../components/Populars";
 import Toprated from "../components/TopRated";
 import Hollywood from "../components/Hollywood";
 import Modal from "../components/Modal";
+import { useEffect } from "react";
 
 export default function Home({
   setModal,
@@ -14,6 +15,9 @@ export default function Home({
   responsiveChico,
   setNavSearch,
 }) {
+  useEffect(() => {
+    setModal(false);
+  }, []);
   return (
     <>
       <Header setModal={setModal} setMovieId={setMovieId} modal={modal} />
