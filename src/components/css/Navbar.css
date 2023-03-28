@@ -1,19 +1,16 @@
+.lupita {
+  filter: invert(22%) sepia(88%) saturate(7467%) hue-rotate(0deg)
+    brightness(100%) contrast(120%);
+  background-color: transparent;
+}
 .searchBar {
   display: flex;
   flex-direction: row;
   margin-top: 0.5rem;
   margin-right: 1rem;
   align-items: center;
-  border: 1px solid azure;
-  background-color: black;
   padding: 0;
   height: 26px;
-}
-
-.lupita {
-  filter: invert(22%) sepia(88%) saturate(7467%) hue-rotate(0deg)
-    brightness(100%) contrast(120%);
-  background-color: transparent;
 }
 
 .searchFalse {
