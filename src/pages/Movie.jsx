@@ -51,8 +51,10 @@ export default function Movie({ responsive, responsiveChico }) {
           </div>
           <div className="right">
             <p className="d-flex">
-              Géneros: {movieId?.genres[0].name}, {movieId?.genres[1].name},{" "}
-              {movieId?.genres[2].name}.
+              Géneros:
+              {movieId.genres.map((genre) => {
+                return <p className="ms-1">{genre.name}</p>;
+              })}
             </p>
           </div>
         </div>
