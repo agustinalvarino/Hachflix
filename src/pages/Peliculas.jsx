@@ -1,5 +1,6 @@
 import ScrollEternal from "../components/ScrollEternal";
 import Modal from "../components/Modal";
+import { useEffect } from "react";
 
 export default function Peliculas({
   modal,
@@ -9,6 +10,9 @@ export default function Peliculas({
   query,
   setNavSearch,
 }) {
+  useEffect(() => {
+    setModal(false);
+  }, []);
   return (
     <>
       <ScrollEternal
