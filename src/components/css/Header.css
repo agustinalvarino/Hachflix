@@ -1,3 +1,27 @@
+.info-container {
+}
+
+.botones {
+  display: flex;
+  flex-direction: column;
+}
+
+.black {
+  width: 150px;
+  border-radius: 5px;
+  border: 1px solid #838383;
+  color: azure;
+  font-size: small;
+  background-color: #111;
+}
+
+.black:hover {
+  background-color: rgba(185, 218, 252, 0.131);
+  transform: scale(1.2);
+  transition-timing-function: ease-in;
+  transition: all 0.5s;
+}
+
 .header {
   box-sizing: border-box;
   font-family: "DM Sans", sans-serif;
@@ -22,6 +46,7 @@
   width: 100%;
   justify-content: center;
   margin-left: 1.6rem;
+  padding-right: 2rem;
 }
 .hero-details {
   display: flex;
